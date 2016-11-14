@@ -1,0 +1,19 @@
+doctype html
+html(lange="en")
+
+  head
+    include meta
+
+    //Favicon
+    link( rel="shortcut icon", href="/favicon.ico")
+    link( rel="apple-touch-icon", href="/apple-touch-icon.png")
+
+    link( rel="stylesheet", media="screen", href="styles/main.css")
+
+  body.home
+    #App
+      include app
+
+    #Scripts
+      script( src="scripts/lib/jquery.min.js" )
+      script( src="scripts/app.js", type"text/javascript")
