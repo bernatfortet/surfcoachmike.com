@@ -147,7 +147,9 @@ module.exports = function (grunt) {
             '*.{ico,txt}',
             'scripts/**/*.js',
             'styles/fonts/**',
+            '*.html',
             '.htaccess',
+            'CNAME',
             'images/{,*/}*.{webp,gif,jpg,png,svg}'
           ]
         }]
@@ -183,7 +185,7 @@ module.exports = function (grunt) {
     'pug:dist',
     'copy',
   ]);
-  
+
   grunt.registerTask('deploy', [
     'build',
     'gh-pages'
