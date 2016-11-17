@@ -664,6 +664,7 @@ header {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  align-items: center;
   justify-content: center;
   display: flex;
 }
@@ -741,19 +742,19 @@ header .image {
 }
 .footer-cta {
   width: 100%;
-  padding: 32px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding-left: 32px;
-  padding-right: 32px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
   text-align: center;
 }
-.app {
+.footer-cta > * {
+  padding: 32px;
+}
+.hero {
   max-width: 800px;
   flex-direction: column;
   justify-content: center;
@@ -761,7 +762,7 @@ header .image {
   display: flex;
   text-align: center;
 }
-.app .logo {
+.hero .logo {
   width: 92px;
   height: 92px;
   background-repeat: no-repeat;
@@ -769,30 +770,30 @@ header .image {
   background-size: cover;
   background-image: url("../images/logo.png");
 }
-.app .app-name {
+.hero .app-name {
   font-size: 32px;
   line-height: 1;
   letter-spacing: 0;
   color: white;
   font-weight: 600;
 }
-.app .subtitle {
+.hero .subtitle {
   font-size: 32px;
   line-height: 1;
   letter-spacing: 0;
   color: white;
   font-weight: 500;
 }
-.app .logo {
+.hero .logo {
   margin-bottom: 24px;
 }
-.app .app-name {
+.hero .app-name {
   margin-bottom: 12px;
 }
-.app .subtitle {
+.hero .subtitle {
   margin-bottom: 24px;
 }
-.app .button.cta {
+.hero .button.cta {
   margin-bottom: 24px;
 }
 .button {
@@ -808,6 +809,7 @@ footer {
   width: 100%;
   background: #1B1B1B;
   justify-content: center;
+  align-items: center;
   display: flex;
 }
 footer ul {
@@ -849,11 +851,11 @@ a {
     justify-content: center;
     display: flex;
   }
-  footer ul {
+  .app footer ul {
     flex-direction: row;
     display: flex;
   }
-  .app {
+  .hero {
     flex: 1;
   }
 }
