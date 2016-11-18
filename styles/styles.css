@@ -1,3 +1,4 @@
+@import "flexboxgrid.min.css";
 article,
 aside,
 details,
@@ -269,14 +270,41 @@ input::-moz-focus-inner {
 	Flexbox helpers
 	******************/
 .flex {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
   display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 .row {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
   display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
   flex-direction: row;
 }
 .column {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
   display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
   flex-direction: column;
 }
 .wrap {
@@ -302,8 +330,28 @@ input::-moz-focus-inner {
   align-self: flex-end;
 }
 .flex1 {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
   display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-flex: 1;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1;
+  /* OLD - Firefox 19- */
+  width: 20%;
+  /* For old syntax, otherwise collapses. */
+  -webkit-flex: 1;
+  /* Chrome */
+  -ms-flex: 1;
+  /* IE 10 */
   flex: 1;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 .icon-16 {
   width: 16px;
@@ -633,6 +681,54 @@ body {
   display: flex;
   flex-direction: column;
 }
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 999;
+  visibility: hidden;
+}
+.modal .bkg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}
+.modal .inner {
+  width: 280px;
+  position: relative;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.modal span {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  color: #333333;
+  font-weight: 300;
+  text-align: center;
+}
+.modal input {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  color: #333333;
+  font-weight: 300;
+  text-align: center;
+  margin: 12px 0 8px;
+  padding: 8px 12px;
+}
 .hp {
   padding-left: 32px;
   padding-right: 32px;
@@ -646,6 +742,7 @@ body {
   background-size: cover;
 }
 .t1 {
+  margin: 0;
   font-size: 40px;
   line-height: 42px;
   letter-spacing: 0;
@@ -653,6 +750,7 @@ body {
   font-weight: 500;
 }
 .t2 {
+  margin: 0;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0;
@@ -673,22 +771,14 @@ header .header-inner {
   max-width: 800px;
   padding-top: 56px;
   padding-bottom: 32px;
-  padding-left: 32px;
-  padding-right: 32px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
   text-align: center;
 }
-header .image {
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  height: 650px;
-  background-size: contain;
-  flex: 1;
+header .img {
+  margin-top: 20px;
 }
 .value-prop {
   padding-left: 32px;
@@ -700,15 +790,21 @@ header .image {
   display: flex;
 }
 .value-prop .block {
+  width: 100%;
   max-width: 800px;
   margin-bottom: 80px;
+  align-items: center;
+  display: flex;
 }
 .value-prop .inner {
+  max-width: 320px;
   flex-direction: column;
   display: flex;
   flex: 1;
+  text-align: center;
 }
 .value-prop .title {
+  margin: 0;
   font-size: 40px;
   line-height: 42px;
   letter-spacing: 0;
@@ -717,6 +813,7 @@ header .image {
   margin-bottom: 12px;
 }
 .value-prop .description {
+  margin: 0;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0;
@@ -724,13 +821,7 @@ header .image {
   font-weight: 300;
   margin-bottom: 24px;
 }
-.value-prop .image {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-size: contain;
-  flex: 1;
-  height: 473px;
+.value-prop .img {
   border-radius: 8px;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -769,6 +860,8 @@ header .image {
   background-position: center center;
   background-size: cover;
   background-image: url("../images/logo.png");
+  align-self: center;
+  display: flex;
 }
 .hero .app-name {
   font-size: 32px;
@@ -804,6 +897,13 @@ header .image {
   -webkit-border-radius: 32px;
   color: white;
   font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  align-self: center;
+  display: flex;
+}
+.button:hover {
+  color: orange;
 }
 footer {
   width: 100%;
@@ -831,16 +931,15 @@ footer a {
 a {
   text-decoration: none;
 }
-@media only screen and (min-width: 620px) {
+@media only screen and (min-width: 640px) {
   header .header-inner {
     flex-direction: row;
     display: flex;
     padding-top: 24px;
     padding-bottom: 24px;
   }
-  header .image {
-    width: 400px;
-    height: 600px;
+  header .img {
+    margin-right: 20px;
   }
   .value-prop .block {
     flex-direction: row;
@@ -850,6 +949,14 @@ a {
   .value-prop .inner {
     justify-content: center;
     display: flex;
+    text-align: left;
+    margin-right: 20px;
+    margin-left: 40px;
+    flex: 2;
+  }
+  .value-prop .img {
+    margin-top: 0;
+    margin-right: 0px;
   }
   .app footer ul {
     flex-direction: row;
@@ -857,5 +964,15 @@ a {
   }
   .hero {
     flex: 1;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .value-prop .inner {
+    margin-right: 60px;
+    margin-left: 100px;
+    flex: 2;
+  }
+  .value-prop .img {
+    margin-right: 20px;
   }
 }
