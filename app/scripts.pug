@@ -1,9 +1,30 @@
+
 script( src="scripts/lib/jquery.min.js" )
 
 script.
 	$(document).ready( function() {
-			console.log('asdf')
+			$('#CTA1').on('click', onClickCTA1 )
+			$('#CTA2').on('click', onClickCTA2 )
+
+			$('#ModalBKG').on('click', closeModal )
 	})
+
+	function onClickCTA1(){
+		ga('send', 'event', 'actions', 'cta1')
+		openModal()
+	}
+	function onClickCTA2(){
+		ga('send', 'event', 'actions', 'cta2')
+		openModal()
+	}
+
+	function openModal(){
+		$('#Modal').css('visibility', 'visible')
+	}
+
+	function closeModal(){
+		$('#Modal').css('visibility', 'hidden')
+	}
 
 script.
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -13,17 +34,3 @@ script.
 
 	ga('create', 'UA-80012537-2', 'auto');
 	ga('send', 'pageview');
-
-
-
-script.
-	/*
-	* jQuery WidowFix Plugin
-	* http://matthewlein.com/widowfix/
-	* Copyright (c) 2010 Matthew Lein
-	* Version: 1.3.2 (7/23/2011)
-	* Dual licensed under the MIT and GPL licenses
-	* Requires: jQuery v1.4 or later
-	*/
-
-	(function(a){jQuery.fn.widowFix=function(d){var c={letterLimit:null,prevLimit:null,linkFix:false,dashes:false};var b=a.extend(c,d);if(this.length){return this.each(function(){var i=a(this);var n;if(b.linkFix){var h=i.find("a:last");h.wrap("<var>");var e=a("var").html();n=h.contents()[0];h.contents().unwrap()}var f=a(this).html().split(" "),m=f.pop();if(f.length<=1){return}function k(){if(m===""){m=f.pop();k()}}k();if(b.dashes){var j=["-","–","—"];a.each(j,function(o,p){if(m.indexOf(p)>0){m='<span style="white-space:nowrap;">'+m+"</span>";return false}})}var l=f[f.length-1];if(b.linkFix){if(b.letterLimit!==null&&n.length>=b.letterLimit){i.find("var").each(function(){a(this).contents().replaceWith(e);a(this).contents().unwrap()});return}else{if(b.prevLimit!==null&&l.length>=b.prevLimit){i.find("var").each(function(){a(this).contents().replaceWith(e);a(this).contents().unwrap()});return}}}else{if(b.letterLimit!==null&&m.length>=b.letterLimit){return}else{if(b.prevLimit!==null&&l.length>=b.prevLimit){return}}}var g=f.join(" ")+"&nbsp;"+m;i.html(g);if(b.linkFix){i.find("var").each(function(){a(this).contents().replaceWith(e);a(this).contents().unwrap()})}})}}})(jQuery);

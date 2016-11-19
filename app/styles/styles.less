@@ -1,27 +1,28 @@
 @import "global-styles.less";
-@import 'fonts.less';
+@import "flexboxgrid.min.css";
+// @import 'fonts.less';
 
-//.sf{ font-family:'San Francisco'}
+// .sf{ font-family:'San Francisco'}
 
 html, body{ width:100%; height:100%; }
 .app * { display:flex; flex-direction:column; }
 
-// Vars
+// Vars ------------
 @maxWidth:800px;
 
-// Global Styles
+// Global Styles ------------
 .hp{ padding-left:32px; padding-right:32px; }
 .contain{ background-size:contain; }
 .bkg{  background-repeat: no-repeat; background-position:center center; background-size:cover;}
 
 
-// Text Styles
+// Text Styles ------------
 @mainTextColor: lighten(black,20%);
 .t1{ margin:0; .fs(40px, 42px); color:@mainTextColor; font-weight:500;}
 .t2{ margin:0; .fs(24px, 32px); color:@mainTextColor; font-weight:300; }
 
 
-// Structure
+// Structure ------------
 header{ width:100%; .bkg; .aic; .jcc;
 	.header-inner{ width:100%; max-width:@maxWidth; padding-top:56px; padding-bottom:32px; .flxCol; .jcc; .aic; .tac; }
 		.img{ margin-top:20px; }
@@ -41,11 +42,17 @@ header{ width:100%; .bkg; .aic; .jcc;
 	& > * { padding:32px; }
 }
 
+footer{ width:100%; background:#1B1B1B;  .jcc; .aic;
+	ul{ margin:0; padding:20px 0; .hp; }
+		li{ list-style:none; .tac;}
+			a{ display:block; padding:20px; color:darken(white,50%); font-weight:500; }
+}
 
-// Components
+
+// Components ------------
 
 .hero{ max-width:@maxWidth; .flxCol; .jcc; .aic; .tac;
-	.logo{ width:92px; height:92px; .bkg; background-image:url("../images/logo.png"); }
+	.logo{ width:92px; height:92px; .bkg; background-image:url("../images/logo.png"); .asc; }
 	.app-name{ .fs(32px); color:white; font-weight:600; }
 	.subtitle{ .fs(32px); color:white; font-weight:500; }
 
@@ -56,19 +63,20 @@ header{ width:100%; .bkg; .aic; .jcc;
 }
 
 
-.button{ padding:16px 24px; background:fade(black,90%); .br(32px); color:white; font-weight:bold; .anchor;
+.button{ padding:16px 24px; background:fade(black,90%); .br(32px); color:white; font-weight:bold; .anchor; .tac; .asc;
 	&:hover{ color:orange; }
-}
-
-footer{ width:100%; background:#1B1B1B;  .jcc; .aic;
-	ul{ margin:0; padding:20px 0; .hp; }
-		li{ list-style:none; .tac;}
-			a{ display:block; padding:20px; color:darken(white,50%); font-weight:500; }
 }
 
 a{ text-decoration:none; }
 
+.modal{ .fixed; width:100%; height:100%; .jcc; .aic; z-index:999; visibility:hidden;
+	.bkg{ .fixed; width:100%; height:100%; background: fade(white,80%); }
+	.inner{ width:280px; .rel; padding:20px; background:white; .br(8px); .bs(0 5px 20px 0 fade(black,20%) ); }
+		span{ .t2; .tac; }
+		input{ .t2; .tac; margin: 12px 0 8px; padding:8px 12px;}
+}
 
+// Media queries ------------
 
 @media only screen
 and (min-width : 640px) {
