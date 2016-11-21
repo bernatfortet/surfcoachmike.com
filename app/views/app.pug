@@ -2,9 +2,9 @@
 .modal#Modal
 	.bkg#ModalBKG
 	.inner
+		.close#CloseModal
 		span The app is about to be released, write down your email and we'll check in with you as soon as we have it!
-		input( type='email' placeholder='you@email.com')
-		.button#SubmitEmail Keep me udpated
+		include mailchimp
 
 header( style="background-image:url('./images/bkg.jpg')")
 	.header-inner
