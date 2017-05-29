@@ -1,12 +1,30 @@
-(function() {
-  this.App = (function() {
-    function App() {
-      App.__super__.constructor.apply(this, arguments);
-      console.log('Hello World');
-    }
+$(document).ready( function() {
+		$('#CTA1').on('click', onClickCTA1 )
+		$('#CTA2').on('click', onClickCTA2 )
 
-    return App;
+		$('#ModalBKG, #CloseModal').on('click', closeModal )
 
-  })();
+		$('.mailchimpForm').on('submit', onSubmitEmail )
+})
 
-}).call(this);
+function onClickCTA1(){
+	ga('send', 'event', 'actions', 'cta1')
+	openModal()
+}
+function onClickCTA2(){
+	ga('send', 'event', 'actions', 'cta2')
+	openModal()
+}
+
+function openModal(){
+	$('#Modal').css('visibility', 'visible')
+}
+
+function closeModal(){
+	$('#Modal').css('visibility', 'hidden')
+}
+
+function onSubmitEmail(event){
+	var email = $('.userEmail').val()
+	ga('send', 'event', 'actions', 'newEmailSubscriber')
+}
